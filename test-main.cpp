@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ctype.h>
+#include <cctype>
 #include <vector>
 #include "sSolver.h"
 
@@ -92,6 +92,6 @@ void printGameBoard( int board[][COLS], int ROWS )
         {
             std::cout << board[i][j] << " ";
         }
-        std::cout << ")\n";
+        std::cout << ")" << std::endl;
     }
 }

@@ -38,7 +38,7 @@ class Graph
         void insertNode( node*, int) ;
         int getSize();
         bool isEmpty();
-        void addEdge( node*, node* );
+        void addEdge( node*, node*, node* );
         void BFS( node* );
         void inOrderTraversal( node* );
 };

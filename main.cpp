@@ -1,11 +1,7 @@
 #include <iostream>
-#include <ctype.h>
+#include <cctype>
 #include <vector>
 #include "sSolver.h"
-
-// global variable declaration
-const int ROWS = 4;
-const int COLS = 4;
 
 // main fucntion prototypes
 void printGameBoard(int[][COLS], int);
@@ -34,7 +30,7 @@ int main()
             gameBoard[i][j] = storePuzzleInfo;
 
             // check to see if input is valid
-            if( !std::isDigit(storePuzzleInfo) )
+            if( !std::isdigit(storePuzzleInfo) )
             {
                 throw( "Not a digit! Enter a number" );
                 std::cin >> storePuzzleInfo;
@@ -43,12 +39,12 @@ int main()
     }
 
     std::cout << "Here is the puzzle given - is this correct? (y/n)" << std::endl;
-    printGameBoard(  );
+    printGameBoard( gameBoard, ROWS );
 
 }
 
 // prototype definitions
-void printGameBoard(int[][COLS] board, int ROWS)
+void printGameBoard(int board[][COLS], int ROWS)
 {
     for( int i = 0; i < 4; i++ )
     {

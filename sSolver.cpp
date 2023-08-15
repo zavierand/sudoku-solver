@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cctype.h>
+#include <cctype>
 #include "graph.h"
 #include "sSolver.h"
 

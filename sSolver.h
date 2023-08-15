@@ -16,7 +16,7 @@
 
 #include <iostream>
 #include <vector>
-#include <cctype.h>
+#include <cctype>
 #include "graph.h"
 
 class SSolver : public Graph

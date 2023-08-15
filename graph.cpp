@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cctype.h>
+#include <cctype>
 #include "graph.h"
 
 Graph::Graph()
@@ -29,11 +29,6 @@ bool Graph::isEmpty()
 }
 
 void Graph::BFS( node* cell )
-{
-
-}
-
-void Graph::DFS( node* cell )
 {
 
 }
