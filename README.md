@@ -1,47 +1,30 @@
 # PROJECT: SUDOKU SOLVER
 
 ## Goal: To solve sudoku problems that are input into the program
+The goal of this project is for the program to solve and spew out the result of any sudoku problem that is passed as input.
+The
 
-This is a simple project to solve 4x4 sudoku problems. The goal of this project is to 
-create a program that provides solutions to solve any sudoku problem that it's given.
-The implemenation of the project was done in an object-oriented programming manner with
-the language used to implent the code being C++.
+## Overview of the Project and the Algorithm
+As a junior at NYU, I took CSCI-UA.310 - Basic Algorithms this past Fall 2023 semester, which taught me a lot of the fundamentals of algorithm design
+and problem solving (shout out Professor Guan), which will be applied to this project. Duing the semester, we learned about a fundamental problem
+within theoretical computer science and discrete mathematics, does "P" = "NP"? While this topic was only touched upon once during the semester - the applciations
+and intution behind many of these problems exist in a number of different domains.
 
-The implementation defines a graph that is used to represent the puzzle. Each cell within
-the graph is a node/vertex that can be found in the graph. 
+Sudoku is a game where the player must fill in a board consisting of 81 cells, 9 rows and 9 columns, where the number in the cell is unique to its row, column, and 3x3 grid (which are labeled clearly on an actual gameboard). Alongside demonstrating skills in data structures and object-oriented programming, I
+also wanted to demonstrate knowledge in algorithm design and modification. Knowing the contraints of the sudoku problem, I wanted to apply what was learned in my algorithms class to solve this problem.
 
-I wanted to incorporate and demonstrate my understanding of graph theory as well as the graph
-data structure to solve the problems that were given. Hence - the algorithm in laymens terms,
-takes each vertex and assigns each of them a number. Graph coloring was used to output a 
-filled graph, indicating the solution to the puzzle. 
+A brief overview on "P" and "NP". What the hell is "P" and "NP"? Well, the letters simply refer to the term "polynomial" and "nondeterministic polynomial". problems that are considered solvable in P time are problems that have verified and proofs to confirm that the most optimal solution to these problems exist in polynomial, or "P", time. 
 
-Each "color" represents the value in which a node should be filled. From 1 - 4, the color
-coordination is as follows -
+On the otherhand, problems that are considered "NP" have solutions that can guessed and the algorithm that can be derived. However, the algorithms for these problems are confirmed to be in "nonpolynomial" (NP) time. However, there are problems within the the set of NP problems that have yet to be solved - including the graph isomorphism problem, the discrete logarithm problem, and the integer factorization problem.
 
-Color Code for Graph Coloring Algorithm:
-1 = blue
-2 = red
-3 = yellow
-4 = green
-
-## Graph Coloring Algorithm:
-The graph coloring algorithm is a simple way to visualize, represent, and label a graph. Given
-an undirected graph, one can apply the algorithm of graph coloring to label the graph in such a
-way that no vertex can be adjacent to another vertex with the same information - in the case of
-coloring, the same color.
-
-After coloring the graph, the vertices that are adjacent to each other can be represented through
-a variety of different representations such as an adjacency matrix or through set notation. 
-
-There are many applications for the use of graph coloring, for example finding whether or not a 
-graph has a path, is cyclic or not, and the applications run large. In the case of this project, 
-graph coloring is used to find whether an adjacent vertex (sudoku cell) is filled with a repeating
-number - represented by a color, and if so, the vertices being compared in that situation should not
-be adjacent to each other.
-
+NP problems can be categorized into different types of problems. NP complete problems and NP-hard problems.
 ## Thought Process:
 Each cell (node) within the puzzle cannot be adjacent to a cell (node) with the same color.
 If there is a color ollision with these nodes and the colors are the same, the immediate 
 response to that would be that there should be no edge connecting these respective cells. Hence,
 each node should be adjacent to another vertex that differs in color and each corresponding 
 vertex should differ in color.
+
+## Sources:
+https://www.britannica.com/science/P-versus-NP-problem
+
