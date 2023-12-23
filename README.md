@@ -27,7 +27,7 @@ However, that's a problem that is far beyond my current academic level - but an 
 ## Algorithm:
 As we discussed in the former, by reducing an NP-hard problem, u, to an NP-complete problem, x, we can at least verify that there exists a solution to u by proof of x. 
 
-For the sudoku problem, being an NP-hard problem - given a 9x9 grid, we must find a unique combination of cell orderings from 1-9 within the same row, column, and 3x3 grid that fills the entire 9x9 set. We know that the Hamiltonian Path is an NP-complete problem, where the problem states that given a graph, we must find a path between a source vertex, s, and a destination vertex, d, such that for all vertices in the path, $\all v \in V$ , each of them are unique in itself (no repeating vertices in the graph), $v_1 \noteq v_2 \noteq ... \noteq v_n$, where n is the input size (in our case, 9).
+For the sudoku problem, being an NP-hard problem - given a 9x9 grid, we must find a unique combination of cell orderings from 1-9 within the same row, column, and 3x3 grid that fills the entire 9x9 set. We know that the Hamiltonian Path is an NP-complete problem, where the problem states that given a graph, we must find a path between a source vertex, s, and a destination vertex, d, such that for all vertices in the path, $\forall v \in V$ , each of them are unique in itself (no repeating vertices in the graph), $v_1 \neq v_2 \neq ... \neq v_n$, where n is the input size (in our case, 9).
 
 Hence, by reducing the Sudoku Problem to the Hamiltonian Problem, we can verify that there exists a solution to the Sudoku Problem.
 
