@@ -1,4 +1,4 @@
-#include "QUEUE.h"
+#include "Queue.h"
 
 // constructor and destructor
 Queue::Queue()

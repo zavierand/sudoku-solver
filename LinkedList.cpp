@@ -101,12 +101,13 @@ void LinkedList<T>::printList()
     node<T>* temp;
     temp = head;
 
+    std::cout << "(";
     while (temp != NULL)
     {
         std::cout << temp->data << " ";
         temp = temp->next;
     }
-    std::cout << "\n";
+    std::cout << ")\n";
 }
 
 template <class T>
