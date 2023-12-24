@@ -13,19 +13,13 @@
 #define QUEUE_H
 
 #include <iostream>
-#include "LINKEDLIST.h"
+#include "LinkedList.h"
 
 /****************************************************************************************
 *   we include the header file for the linked list data structure to use on our queue.  *
 *   since we also include our linked list header file in this, we can use the struct    *
 *   node that we defined in the header file for the                                     *
 ****************************************************************************************/
-
-struct node
-{
-    int data;
-    node<T>* next;
-};
 
 class Queue 
 {

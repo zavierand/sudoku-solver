@@ -11,36 +11,37 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include "LINKEDLIST.h"
-#include "QUEUE.h"
+#include "LinkedList.h"
+//#include "Queue.h"
 #include <vector>
 
 class Graph
 {
     private:
         // we will represent the graph through an adjacency list
-        LinkedList<int>* adjList[numVertices];
+        std::vector<LinkedList<int>*> adjList;
         int numVertices;
     
     public:
         // constructor and destructor
-        Graph();
+        Graph(int);
         ~Graph();
 
-        // search graph
-        void DFS(node*<int>, int);
+        // getters
+        int getVertices();
 
         // search for path
-        void Hamiltonian(LinkedList[]);
+        //void Hamiltonian(LinkedList[]);
 
         // add graph components
         void addVertex(int);
-        void addEdge(int);
+        void addEdge(int, int);
 
         // additional member methods
         bool isEmpty();
-        void printGraph();
-
+        void printAdjList();
 };
 
 #endif
+
+// end of Graph header file
