@@ -24,6 +24,7 @@ Within the set of problems, we established that P is a subset of NP, P $\subset$
 The question, though, is can we guarantee a solution to problems that are considered NP in P time? That is the whole debate, P vs NP. Does P = NP? If P does indeed equal NP, we would have a ton of solutions overnight that would dramatically affect the discourse of the current computational tundra. 
 
 However, that's a problem that is far beyond my current academic level - but an interesting for those who are interested in studying computational complexity theory.
+
 ## Algorithm:
 As we discussed in the former, by reducing an NP-hard problem, u, to an NP-complete problem, x, we can at least verify that there exists a solution to u by proof of x. 
 
