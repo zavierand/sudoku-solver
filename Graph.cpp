@@ -48,7 +48,13 @@ void Graph::BFS(int source)
     // while the queue is not empty, search
     while (!bfsQueue.empty())
     {
-        
+        // check queue for next vertex
+        // add adj vertices
+        // mark current vertex visited
+        // pop
+        // if vertex has already been checked, pop
+        // repeat until queue size == 0/all vertices checked
+        bfsQueue.front()
     }
 }
 
