@@ -21,6 +21,28 @@ int LinkedList<T>::getSize()
     return size;
 }
 
+// linear search on an unsorted Linked List
+template <class T>
+int LinkedList<T>::search(int x)
+{
+    node<T>* temp = new node<T>;
+    temp = head;
+    
+    if (!isEmpty())
+    {
+        while (temp->data != x)
+        {
+            temp = temp->next;
+        }
+        return temp->data;
+    }
+    else
+    {
+        std::cout << "List is empty.\n";
+        return -1;
+    }
+}
+
 // insert and delete methods
 template<class T>
 void LinkedList<T>::insertNode(T data)
@@ -111,6 +133,30 @@ void LinkedList<T>::printList()
 }
 
 template <class T>
+void LinkedList<T>::printAfterFirstNode()
+{
+    node<T>* temp = new node<T>;
+    temp = head;
+    // traverse to one node after head node
+    for (int i = 0; i < 1; i++)
+    {
+        temp = temp->next;
+    }
+
+    // print remainig information
+    while (temp != NULL)
+    {
+        std::cout << temp->data;
+        if (temp->next != NULL)
+        {
+            std::cout << " --> ";
+        }
+        temp = temp->next;
+    }
+    std::cout << "\n";
+}
+
+template <class T>
 bool LinkedList<T>::isEmpty()
 {
     return size == 0;
@@ -121,6 +167,10 @@ void LinkedList<T>::traverseList()
 {
     node<T>* temp = new node<T>;
     temp = head;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+    }
 }
 
 template class LinkedList<int>;

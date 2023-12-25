@@ -22,6 +22,7 @@ int main()
     testList.insertNode(3);
     testList.insertNode(4);
 
+    std::cout << testList.search(4) << " is in the linked list.\n";
     testList.printList();
     
     std::cout << "List size is: " << testList.getSize() << "\n";

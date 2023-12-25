@@ -32,12 +32,16 @@ class LinkedList
         // getters
         int getSize();
 
+        // linear search on an unsorted Linked List
+        int search(int);
+
         // insert and delete methods
         void insertNode(T);
         void deleteNode(int);
 
         // additional member methods for list
         void printList();
+        void printAfterFirstNode();
         bool isEmpty();
         void traverseList();
 
