@@ -5,17 +5,16 @@ int main() {
 
     Graph testGraph(5);
 
-    std::cout << "Graph contains " << testGraph.getVertices() << " vertices.\n";
+    std::cout << "The graph contains " << testGraph.getVertices() << " vertices.\n";
 
+    // add vertices to the graph
     testGraph.addVertex(1);
     testGraph.addVertex(2);
     testGraph.addVertex(3);
     testGraph.addVertex(4);
     testGraph.addVertex(5);
-
-    std::cout << "Graph, G, Adjacency List:\n";
-    testGraph.printAdjList();
     
+    // add edges connecting vertices
     testGraph.addEdge(1, 2);
     testGraph.addEdge(1, 3);
     testGraph.addEdge(1, 4);
@@ -29,8 +28,12 @@ int main() {
     testGraph.addEdge(4, 5);
     testGraph.addEdge(5, 4);
 
-    std::cout << "Graph, G, Adjacency List:\n";
+    // check size of array
+    std::cout << "Graph has " << testGraph.getVertices() << " vertices.\n";
+
     testGraph.printAdjList();
+
+    testGraph.BFS(1);
 
     return 0;
 
