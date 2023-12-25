@@ -12,7 +12,7 @@
 #define GRAPH_H
 
 #include "LinkedList.h"
-//#include "Queue.h"
+#include <queue>    // time crunch to implement working queue -> will implement my own eventually
 #include <vector>
 
 class Graph
@@ -30,8 +30,9 @@ class Graph
         // getters
         int getVertices();
 
-        // search for path
-        //void Hamiltonian(LinkedList[]);
+        // searching algorithms
+        void BFS(int);
+        void Hamiltonian(int); // search for path
 
         // add graph components
         void addVertex(int);
@@ -40,6 +41,7 @@ class Graph
         // additional member methods
         bool isEmpty();
         void printAdjList();
+        void printGraph();  // a call to BFS
 };
 
 #endif
