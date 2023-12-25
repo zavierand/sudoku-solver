@@ -42,13 +42,19 @@ void Graph::BFS(int source)
     // push vertices adjacent to source onto the queue from adjList
     for (int i = 0; i < adjList[i].getSize(); i++)
     {
-        bfsQueue.push(adjList[i].search(i));
+        bfsQueue.push(adjList[i].search(i)); // figure out which function from LL class will place data accordingly
     }
 
     // while the queue is not empty, search
     while (!bfsQueue.empty())
     {
-        
+        // check queue for next vertex
+        // add adj vertices
+        // mark current vertex visited
+        // pop
+        // if vertex has already been checked, pop
+        // repeat until queue size == 0/all vertices checked
+        bfsQueue.front()
     }
 }
 
