@@ -15,10 +15,58 @@ LinkedList<T>::~LinkedList()
 }
 
 // getters
+// get size of list
 template <class T>
 int LinkedList<T>::getSize()
 {
     return size;
+}
+
+// retrieve value at certain node
+template <class T>
+int LinkedList<T>::getAtPosition(int position)
+{
+    node<T>* temp = new node<T>;
+    temp = head;
+
+    if (isEmpty())
+    {
+        std::cout << "List is empty.\n";
+        return 0;
+    }
+    else
+    {
+        for (int i = 0; i < position; i++)
+        {
+            temp = temp->next;
+        }
+        return temp->data;
+    }
+}
+
+template <class T>
+int LinkedList<T>::getAtPositionAfterFirst(int position)
+{
+    node<T>* temp = new node<T>;
+    temp = head;
+
+    if (head == NULL)
+    {
+        std::cout << "List is empty.\n";
+        return 0;
+    }
+    else
+    {
+        // start from next node;
+        temp = temp->next;
+
+        // traverse to position
+        for (int i = 0; i < position; i++)
+        {
+            temp = temp->next;
+        }
+        return temp->data;
+    }
 }
 
 // linear search on an unsorted Linked List
@@ -42,6 +90,8 @@ int LinkedList<T>::search(int x)
         return -1;
     }
 }
+
+
 
 // insert and delete methods
 template<class T>
@@ -123,13 +173,16 @@ void LinkedList<T>::printList()
     node<T>* temp;
     temp = head;
 
-    std::cout << "(";
     while (temp != NULL)
     {
         std::cout << temp->data << " ";
+        if (temp->next != NULL)
+        {
+            std::cout << " --> ";
+        }
         temp = temp->next;
     }
-    std::cout << ")\n";
+    std::cout << std::endl;
 }
 
 template <class T>
@@ -143,7 +196,7 @@ void LinkedList<T>::printAfterFirstNode()
         temp = temp->next;
     }
 
-    // print remainig information
+    // print remaining information
     while (temp != NULL)
     {
         std::cout << temp->data;
