@@ -13,6 +13,7 @@
 
 #include "LinkedList.h"
 #include <queue>    // time crunch to implement working queue -> will implement my own eventually
+#include <stack>
 #include <vector>
 
 class Graph
@@ -32,7 +33,7 @@ class Graph
 
         // searching algorithms
         void BFS(int);
-        void Hamiltonian(int); // search for path
+        void DFS(int);
 
         // add graph components
         void addVertex(int);
