@@ -41,7 +41,7 @@ class Graph
         // additional member methods
         bool isEmpty();
         void printAdjList();
-        void printGraph();  // a call to BFS
+        void printBFS();  // a call to BFS
 };
 
 #endif

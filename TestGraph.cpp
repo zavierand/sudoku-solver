@@ -33,6 +33,8 @@ int main() {
 
     testGraph.printAdjList();
 
+    // test BFS;
+    std::cout << "BFS Traversal of Graph:\n";
     testGraph.BFS(1);
 
     return 0;

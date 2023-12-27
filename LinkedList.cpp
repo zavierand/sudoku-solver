@@ -45,28 +45,25 @@ int LinkedList<T>::getAtPosition(int position)
 }
 
 template <class T>
-int LinkedList<T>::getAtPositionAfterFirst(int position)
+int LinkedList<T>::getAfterFirst(int position)
 {
     node<T>* temp = new node<T>;
-    temp = head;
+    temp = head->next;
 
-    if (head == NULL)
+    if (isEmpty())
     {
         std::cout << "List is empty.\n";
         return 0;
     }
     else
     {
-        // start from next node;
-        temp = temp->next;
-
-        // traverse to position
         for (int i = 0; i < position; i++)
         {
             temp = temp->next;
         }
         return temp->data;
     }
+
 }
 
 // linear search on an unsorted Linked List
