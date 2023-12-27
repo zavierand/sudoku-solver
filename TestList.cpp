@@ -26,6 +26,10 @@ int main()
     testList.printList();
     
     std::cout << "List size is: " << testList.getSize() << "\n";
+
+    // TEST GETTING AFTER THE FIRST NODE
+    std::cout << "Node at position 2 is: " << testList.getAtPosition(2) << std::endl;
+    std::cout << "Node after the first node is: " << testList.getAfterFirst(1) << std::endl;
     
     // test delete method
     testList.deleteNode(2);
@@ -37,6 +41,7 @@ int main()
     testList.deleteNode(3);
     testList.printList();
 
+    // TEST LIST
     if (testList.isEmpty())
     {
         std::cout << "List is empty." << std::endl;

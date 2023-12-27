@@ -10,7 +10,7 @@
 // constructor and destructor
 Graph::Graph(int vertices)
 {
-    std::vector<LinkedList<int>> adjList(vertices);
+    std::vector<LinkedList<int> > adjList(vertices);
     numVertices = vertices;
 }
 
@@ -30,40 +30,51 @@ int Graph::getVertices()
 // graph traversal - done in BFS
 void Graph::BFS(int source)
 {
-    std::queue<int> = bfsQueue;
-    bool visited[numVertices];
+    /*****************************************************************************************
+    *                       Here is a basic rundown of BFS on a graph:
+    *   1. set up a queue to hold the vertices to be visited
+    *   2. set up a boolean vector to mark vertices visited
+    *   3. push the adjacent vertices of source onto the queue
+    *   4. while the queue isn't empty, mark the node at the front as visited
+    *       4b. push adjacent nodes of vertex at the front onto the queue
+    *   5. if a vertex on the queue has already been visited, we pop and check the next
+    *   6. repeat until the queue is empty
+    *****************************************************************************************/
 
-    // mark each vertex as not visited
-    for (int i = 0; i < visited.size(); i++)
+    // start of BFS definition
+    std::queue<int> bfsQueue;
+    std::vector<bool> visited(numVertices, false);
+    int current = source;
+
+    visited[source - 1] = true;
+
+    for (int i = 0; i < adjList[source - 1]->getSize() - 1; i++)
     {
-        visited[i] = false;
+        bfsQueue.push(adjList[i].search(i));
     }
 
-    // push vertices adjacent to source onto the queue from adjList
-    for (int i = 0; i < adjList[i].getSize(); i++)
-    {
-        bfsQueue.push(adjList[i].search(i)); // figure out which function from LL class will place data accordingly
-    }
-
-    // while the queue is not empty, search
     while (!bfsQueue.empty())
     {
-        // check queue for next vertex
-        // add adj vertices
-        // mark current vertex visited
-        // pop
-        // if vertex has already been checked, pop
-        // repeat until queue size == 0/all vertices checked
-        bfsQueue.front()
+        std::cout << current << " ";
+        for (int i = 1; i < adjList[i]->getSize() - 1; i++)
+        {
+            bfsQueue.push(adjList[bfsQueue.front() - 1]->getAfterFirst(i));
+        }
+        current = bfsQueue.front();
+        visited[bfsQueue.front() - 1] = true;
+        bfsQueue.pop();
+        if (visited[bfsQueue.front() - 1] == true)
+        {
+            bfsQueue.pop();
+        }
     }
 }
 
 // search for path from a vertex
-void Graph::Hamiltonian()
+void Graph::Hamiltonian(int source)
 {
 
 }
-
 
 // add graph components
 void Graph::addVertex(int v)
@@ -109,4 +120,10 @@ void Graph::printAdjList()
         // helper function specific for this class
         adjList[i]->printAfterFirstNode();
     }
+    std::cout << "******************************\n";
+}
+
+void Graph::printBFS()
+{
+
 }
