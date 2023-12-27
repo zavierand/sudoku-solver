@@ -31,6 +31,8 @@ class LinkedList
 
         // getters
         int getSize();
+        int getAtPosition(int);
+        int getAtPositionAfterFirst(int);
 
         // linear search on an unsorted Linked List
         int search(int);

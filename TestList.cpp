@@ -26,6 +26,8 @@ int main()
     testList.printList();
     
     std::cout << "List size is: " << testList.getSize() << "\n";
+
+    std::cout << "Node at position 2 is: " << testList.getAtPosition(2) << std::endl;
     
     // test delete method
     testList.deleteNode(2);
