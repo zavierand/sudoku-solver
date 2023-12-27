@@ -32,7 +32,7 @@ class LinkedList
         // getters
         int getSize();
         int getAtPosition(int);
-        int getAtPositionAfterFirst(int);
+        int getAfterFirst(int);
 
         // linear search on an unsorted Linked List
         int search(int);
