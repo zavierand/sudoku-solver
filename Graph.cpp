@@ -14,6 +14,11 @@ Graph::Graph(int vertices)
     numVertices = vertices;
 }
 
+Graph::~Graph()
+{
+
+}
+
 // getters
 int Graph::getVertices()
 {
@@ -65,7 +70,6 @@ void Graph::BFS(int source)
     }
 }
 
-
 /*********************************************************************************************
 *   DFS runs opposite of BFS, however, the simple trick is to use a stack instead of a queue
 *                       Here is a basic rundown of DFS on a graph:
@@ -77,6 +81,8 @@ void Graph::BFS(int source)
 *   5. if a vertex on the stack has already been visited, we pop and check the next
 *   6. repeat until the stack is empty
 *********************************************************************************************/
+
+// start of DFS implementation
 void Graph::DFS(int source)
 {
     std::stack<int> dfsStack;
@@ -95,11 +101,11 @@ void Graph::DFS(int source)
         // Process neighbors of the current node
         for (int i = 0; i < adjList[current - 1]->getSize(); i++)
         {
-            int neighbor = adjList[current - 1]->getAtPosition(i);
-            if (!visited[neighbor - 1])
+            int adjacent = adjList[current - 1]->getAtPosition(i);
+            if (!visited[adjacent - 1])
             {
-                visited[neighbor - 1] = true;
-                dfsStack.push(neighbor);
+                visited[adjacent - 1] = true;
+                dfsStack.push(adjacent);
             }
         }
     }
@@ -120,16 +126,18 @@ void Graph::addVertex(int v)
     adjList.push_back(vertex);
 }
 
-void Graph::addEdge(int s, int d) {
-    if (s >= 0 && s <= adjList.size()) 
+void Graph::addEdge(int s, int d) 
+{
+    if (s >= 1 && s <= adjList.size() && d >= 1 && d <= adjList.size()) 
     {
-        adjList[s - 1]->insertNode(d);
+        adjList[s - 1]->insertNode(d); // Assuming nodes are indexed from 1 to adjList.size()
     } 
     else 
     {
-        std::cout << "Invalid edge vertices!" << std::endl;
+        std::cout << "Invalid edge." << std::endl;
     }
 }
+
 
 // additional member methods
 bool Graph::isEmpty()
@@ -145,14 +153,16 @@ void Graph::printAdjList()
 
     for (int i = 0; i < numVertices; i++)
     {
-        std::cout << adjList[i]->search(i + 1) << "   --->   ";
-        // helper function specific for this class
-        adjList[i]->printAfterFirstNode();
+        if (adjList[i]->getSize() == 1)
+        {
+            adjList[i]->printList();
+        }
+        else
+        {
+            std::cout << adjList[i]->search(i + 1) << "   --->   ";
+            // helper function specific for this class
+            adjList[i]->printAfterFirstNode();
+        }
     }
     std::cout << "******************************\n";
-}
-
-void Graph::printBFS()
-{
-
 }
