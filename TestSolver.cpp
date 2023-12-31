@@ -20,10 +20,10 @@ int main()
     std::cout << "Enter the puzzle to be solved - type 0 if the space is empty:\n";
     testSolver.inputGrid();
 
-    std::cout << "Input Grid\n";
+    std::cout << "Input Grid:\n";
     testSolver.printGrid();
 
-    std::cout << "Output Grid\n";
+    std::cout << "Output Grid:\n";
     testSolver.printGrid();
 
     // test sudoku mapping

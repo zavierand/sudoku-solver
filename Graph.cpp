@@ -126,16 +126,18 @@ void Graph::addVertex(int v)
     adjList.push_back(vertex);
 }
 
-void Graph::addEdge(int s, int d) {
-    if (s >= 0 && s <= adjList.size()) 
+void Graph::addEdge(int s, int d) 
+{
+    if (s >= 1 && s <= adjList.size() && d >= 1 && d <= adjList.size()) 
     {
-        adjList[s - 1]->insertNode(d);
+        adjList[s - 1]->insertNode(d); // Assuming nodes are indexed from 1 to adjList.size()
     } 
     else 
     {
-        std::cout << "Invalid edge" << std::endl;
+        std::cout << "Invalid edge." << std::endl;
     }
 }
+
 
 // additional member methods
 bool Graph::isEmpty()
@@ -153,7 +155,7 @@ void Graph::printAdjList()
     {
         if (adjList[i]->getSize() == 1)
         {
-            std::cout << i + 1 << ": NULL -> no adjacent vertices\n";
+            adjList[i]->printList();
         }
         else
         {

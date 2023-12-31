@@ -1,4 +1,5 @@
 #include "Solver.h"
+#include <cmath>
 
 // constructor and destructor
 Solver::Solver(int n)
@@ -56,40 +57,79 @@ int Solver::getSizeOfGrid()
 }
 
 // create a reference to the original graph to be modified during solving
-void Solver::mapSudokuToGraph()
+void Solver::mapSudokuToGraph() 
 {
-    // first, we add all the vertices that we need
-    for (size_t i = 0; i < rows; ++i)
+    // 1. Add vertices (nodes) to the graph
+    for (size_t i = 0; i < sizeOfGrid; ++i) 
     {
-        for (size_t j = 0; j < cols; ++j)
+        sudokuGraph->addVertex(i + 1); // Adding vertices with values from 1 to sizeOfGrid
+    }
+
+    // 2. Establish connections (edges) based on Sudoku constraints
+    for (int i = 0; i < sizeOfGrid; ++i) 
+    {
+        std::cout << "1\n";
+        for (int j = 0; j < sizeOfGrid; ++j) 
         {
-            sudokuGraph->addVertex(sudokuMatrix[i][j]);
+            std::cout << "2\n";
+            // Row constraint: Connect nodes in the same row
+            for (int k = 0; k < sizeOfGrid; ++k) 
+            {
+                std::cout << "3\n";
+                if (k != j) 
+                {
+                    sudokuGraph->addEdge(i + 1, sudokuMatrix[i][k] + 1);
+                }
+            }
+
+            // Column constraint: Connect nodes in the same column
+            for (int k = 0; k < sizeOfGrid; ++k) 
+            {
+                if (k != i) 
+                {
+                    sudokuGraph->addEdge(j + 1, sudokuMatrix[k][j] + 1);
+                }
+            }
+
+            // Subgrid constraint: Connect nodes in the same subgrid (nxn subgrid)
+            // Calculate subgrid boundaries (subRow, subCol) and connect nodes accordingly
+            int subgridSize = sqrt(rows);
+            int subRow = (i / subgridSize) * subgridSize;
+            int subCol = (j / subgridSize) * subgridSize;
+
+            for (int x = subRow; x < subRow + subgridSize; ++x) 
+            {
+                for (int y = subCol; y < subCol + subgridSize; ++y) 
+                {
+                    if (x != i || y != j) {
+                        sudokuGraph->addEdge(sudokuMatrix[i][j], sudokuMatrix[x][y]);
+                    }
+                }
+            }
         }
     }
 
-    // next, we'll create edges in between the vertices, keeping in mind grid constraints 
-    int subRow;
-    int subCol;
-    
+    // Print or perform other operations with the graph
     sudokuGraph->printAdjList();
 }
+
 // solving algorithm
 
 // additional member methods for solver class
 void Solver::printGrid()
 {
-    std::cout << "- - - - - - - - -\n";
+    std::cout << "- - - - - - - - - - - - -\n";
     for (int i = 0; i < rows; ++i)
     {
         for (int j = 0; j < cols; ++j)
         {
-            std::cout << "| " << sudokuMatrix[i][j] << " ";
+            std::cout << "|  " << sudokuMatrix[i][j] << "  ";
         }
         std::cout << "|\n";
         if ((i % rows) - 1 == 0)
         {
-            std::cout << " - - - - - - - - \n"; 
+            std::cout << " - - - - - - - - - - - - \n"; 
         }
     }
-    std::cout << "- - - - - - - - -\n";
+    std::cout << "- - - - - - - - - - - - -\n";
 }
