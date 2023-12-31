@@ -53,6 +53,7 @@ int Solver::getCols()
 
 int Solver::getSizeOfGrid()
 {
+    // check if graph size is initialized correctly
     return sudokuGraph->getVertices();
 }
 
@@ -91,7 +92,7 @@ void Solver::mapSudokuToGraph()
                 }
             }
 
-            // Subgrid constraint: Connect nodes in the same subgrid (nxn subgrid)
+            // Subgrid constraint: Connect nodes in the same subgrid (sqrt(n) x sqrt(n) subgrid)
             // Calculate subgrid boundaries (subRow, subCol) and connect nodes accordingly
             int subgridSize = sqrt(rows);
             int subRow = (i / subgridSize) * subgridSize;
