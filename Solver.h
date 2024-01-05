@@ -26,6 +26,7 @@ class Solver
 
         // pointer to memory works the same as an array
         int** sudokuMatrix;
+        int** sudokuMap;
     public:
         // constructor and destructor
         Solver(int);

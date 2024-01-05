@@ -92,11 +92,12 @@ int LinkedList<T>::search(int x)
 
 // insert and delete methods
 template<class T>
-void LinkedList<T>::insertNode(T data)
+void LinkedList<T>::insertNode(T data, int color)
 {
     // we allocate (create) a node
     node<T>* temp = new node<T>;
     temp->data = data;
+    temp->color = color;
     temp->next = NULL;
     
     // first case is if list is empty

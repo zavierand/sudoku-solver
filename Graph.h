@@ -22,6 +22,7 @@ class Graph
         // we will represent the graph through an adjacency list
         std::vector<LinkedList<int>*> adjList;
         int numVertices;
+        int color;
     
     public:
         // constructor and destructor
@@ -36,7 +37,7 @@ class Graph
         void DFS(int);
 
         // add graph components
-        void addVertex(int);
+        void addVertex(int, int);
         void addEdge(int, int);
 
         // additional member methods

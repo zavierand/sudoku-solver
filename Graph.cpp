@@ -16,6 +16,11 @@ Graph::Graph(int vertices)
 
 Graph::~Graph()
 {
+    // first we need to delete the pointer to linked lists in each index
+    for (int i = 0; i < adjList.size(); i++)
+    {
+        delete adjList[i];
+    }
 
 }
 
@@ -112,17 +117,17 @@ void Graph::DFS(int source)
 }
 
 // add graph components
-void Graph::addVertex(int v)
+void Graph::addVertex(int v, int data)
 {   
     /*********************************************************************************
     *
-    *   Since we have an array of type Linked Lists(which are dynamically allocated),
+    *   Since we have an array of type Linked Lists (which are dynamically allocated),
     *   we must create a pointer to each linked list so that way we can access each
     *   element in the linked list when modifying the list.
     *
     *********************************************************************************/
     LinkedList<int>* vertex = new LinkedList<int>;
-    vertex->insertNode(v);
+    vertex->insertNode(v, data);
     adjList.push_back(vertex);
 }
 

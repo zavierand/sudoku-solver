@@ -13,6 +13,7 @@
 template<class T>
 struct node
 {
+    int color;
     T data;
     node<T>* next;
 };
@@ -38,7 +39,7 @@ class LinkedList
         int search(int);
 
         // insert and delete methods
-        void insertNode(T);
+        void insertNode(T, int);
         void deleteNode(int);
 
         // additional member methods for list
