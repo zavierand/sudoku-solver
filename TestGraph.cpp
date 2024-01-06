@@ -8,31 +8,31 @@ int main() {
     std::cout << "The graph contains " << testGraph.getVertices() << " vertices.\n";
 
     // new test graph add vertices to the graph - on alpha
-    testGraph.addVertex(1);
-    testGraph.addVertex(2);
-    testGraph.addVertex(3);
-    testGraph.addVertex(4);
-    testGraph.addVertex(5);
-    testGraph.addVertex(6);
-    testGraph.addVertex(7);
-    testGraph.addVertex(8);
-    testGraph.addVertex(9);
+    testGraph.addVertex(1, 1);
+    testGraph.addVertex(2, 1);
+    testGraph.addVertex(3, 1);
+    testGraph.addVertex(4, 1);
+    testGraph.addVertex(5, 1);
+    testGraph.addVertex(6, 1);
+    testGraph.addVertex(7, 1);
+    testGraph.addVertex(8, 1);
+    testGraph.addVertex(9, 1);
     
     // add edges connecting vertices
-    testGraph.addEdge(1, 4);
-    testGraph.addEdge(1, 6);
-    testGraph.addEdge(1, 8);
-    testGraph.addEdge(2, 8);
-    testGraph.addEdge(3, 6);
-    testGraph.addEdge(3, 7);
-    testGraph.addEdge(4, 3);
-    testGraph.addEdge(5, 7);
-    testGraph.addEdge(5, 9);
-    testGraph.addEdge(6, 2);
-    testGraph.addEdge(6, 7);
-    testGraph.addEdge(8, 9);
-    testGraph.addEdge(9, 5);
-    testGraph.addEdge(9, 1);
+    testGraph.addEdge(1, 4, 0);
+    testGraph.addEdge(1, 6, 0);
+    testGraph.addEdge(1, 8, 0);
+    testGraph.addEdge(2, 8, 0);
+    testGraph.addEdge(3, 6, 0);
+    testGraph.addEdge(3, 7, 0);
+    testGraph.addEdge(4, 3, 0);
+    testGraph.addEdge(5, 7, 0);
+    testGraph.addEdge(5, 9, 0);
+    testGraph.addEdge(6, 2, 0);
+    testGraph.addEdge(6, 7, 0);
+    testGraph.addEdge(8, 9, 0);
+    testGraph.addEdge(9, 5, 0);
+    testGraph.addEdge(9, 1, 0);
 
     // check size of array
     std::cout << "Graph has " << testGraph.getVertices() << " vertices.\n";
@@ -74,6 +74,16 @@ int main() {
     std::cout << "DFS Traversal of Graph from node 4:\n";
     testGraph.DFS(4);
     std::cout << "\n";
+
+    // test checkEdge()
+    if (testGraph.checkEdge(1, 4) == true)
+    {
+        std::cout << "There is an edge between 1 and 4\n";
+    }
+    else
+    {
+        std::cout << "There is no edge between 1 and 4\n";
+    }
 
     return 0;
 

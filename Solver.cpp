@@ -72,42 +72,66 @@ int Solver::getSizeOfGrid()
 // create a reference to the original graph to be modified during solving
 void Solver::mapSudokuToGraph() 
 {
-    // 1. Add vertices (nodes) to the graph
+    // add vertices (nodes) to the graph
     for (size_t i = 0; i < rows; i++) 
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++) 
         {
-            sudokuGraph->addVertex(sudokuMap[i][j], sudokuMatrix[i][j]); // Adding vertices with values from 1 to sizeOfGrid
+            sudokuGraph->addVertex(sudokuMap[i][j], sudokuMatrix[i][j]);
         }
     }
 
-    sudokuGraph->printAdjList();
-    for (int i = 0; i < rows; i++)
+    // add edges between all vertices in rows and cols
+    for (int i = 0; i < rows; i++) 
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++) 
         {
-            std::cout << sudokuMap[i][j] << " ";
-        }
-        std::cout << "\n";
-    }
-
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            for (int k = 1; k < sqrt(sizeOfGrid); k++)
+            for (int k = 0; k < cols; k++) 
             {
                 // col constraint
-                if (k != j)
-                {
-                    sudokuGraph->addEdge(sudokuMap[i][j], sudokuMap[j][k]);
-                    sudokuGraph->addEdge(sudokuMap[j][k], sudokuMap[i][j]);
+                if (k != j) 
+                {         
+                    sudokuGraph->addEdge(sudokuMap[i][j], sudokuMap[i][k], sudokuMatrix[i][k]);
                 }
 
-                if (k != i)
+                // row constraint
+                if (k != i) 
                 {
-                    sudokuGraph->addEdge(sudokuMap[i][j], sudokuMap[k][i]);
-                    sudokuGraph->addEdge(sudokuMap[k][i], sudokuMap[i][j]);
+                    sudokuGraph->addEdge(sudokuMap[i][j], sudokuMap[k][j], sudokuMatrix[k][j]);
+                }          
+            }
+        }
+    }
+
+
+    /************************************************************************************
+    *   1. in each subgrid, there should be an edge between all the vertices
+    *   2. to check that, we can check if there is a path between all of the vertices
+    *   3. if the shortest path is a path with an edge count > 1, then there is no edge 
+    *   between the starting vertex and the destination vertex.
+    *   4. we can create an edge if the path returns a length > 1
+    *   5. what i decided to do was run BFS or DFS to find a path from all vertices
+    *   within a subgrid to create edges within a subgrid.
+    *   6. this should work on all within a subgrid.
+    ************************************************************************************/
+
+    // add respective edges remaining in each subgrid
+    // subgrid constraints
+    // subgrid declarations
+
+    int subgridSize = sqrt(sizeOfGrid);
+    int subgridRow = 2;
+    int subgridCol = 2;
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            for (int k = 1; k < subgridCol; k++)
+            {
+                if (sudokuGraph->BFS(sudokuMap[i][j], sudokuMap[i][k]) == true && sudokuGraph->checkEdge(sudokuMap[i][j], sudokuMap[i][k]) == false)
+                {
+                    sudokuGraph->addEdge(sudokuMap[i][j], sudokuMap[i][k], sudokuMatrix[i][k]);
                 }
             }
         }

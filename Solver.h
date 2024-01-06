@@ -53,7 +53,6 @@ class Solver
         // solving algorithm
         void solve(Graph&);
 
-
         // additional member methods for solver class
         void printGrid();
 };

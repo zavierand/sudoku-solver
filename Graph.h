@@ -32,13 +32,16 @@ class Graph
         // getters
         int getVertices();
 
+        // checkers
+        bool checkEdge(int, int);
+
         // searching algorithms
-        void BFS(int);
+        bool BFS(int, int);
         void DFS(int);
 
         // add graph components
         void addVertex(int, int);
-        void addEdge(int, int);
+        void addEdge(int, int, int);
 
         // additional member methods
         bool isEmpty();

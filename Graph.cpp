@@ -30,6 +30,12 @@ int Graph::getVertices()
     return numVertices;
 }
 
+// checkers
+bool Graph::checkEdge(int s, int d)
+{
+    return (adjList[s - 1]->search(d) == true);
+}
+
 // searching algorithms
 
 // graph traversal - done in BFS
@@ -45,7 +51,7 @@ int Graph::getVertices()
 *****************************************************************************************/
 
     // start of BFS definition
-void Graph::BFS(int source)
+bool Graph::BFS(int source, int destination)
 {
     std::queue<int> bfsQueue;
     std::vector<bool> visited(numVertices, false);
@@ -131,12 +137,12 @@ void Graph::addVertex(int v, int data)
     adjList.push_back(vertex);
 }
 
-void Graph::addEdge(int s, int d) 
+void Graph::addEdge(int s, int d, int data) 
 {
     if (s >= 1 && s <= adjList.size() && d >= 1 && d <= adjList.size()) 
     {
-        adjList[s - 1]->insertNode(d); // Assuming nodes are indexed from 1 to adjList.size()
-    } 
+        adjList[s - 1]->insertNode(d, data); // Assuming nodes are indexed from 1 to adjList.size()
+    }   // we add as a filler for an empty board
     else 
     {
         std::cout << "Invalid edge." << std::endl;
@@ -164,7 +170,7 @@ void Graph::printAdjList()
         }
         else
         {
-            std::cout << adjList[i]->search(i + 1) << "   --->   ";
+            std::cout << adjList[i]->linearSearch(i + 1) << "   --->   ";
             // helper function specific for this class
             adjList[i]->printAfterFirstNode();
         }

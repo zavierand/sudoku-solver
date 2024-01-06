@@ -36,7 +36,8 @@ class LinkedList
         int getAfterFirst(int);
 
         // linear search on an unsorted Linked List
-        int search(int);
+        bool search(int);
+        int linearSearch(int);
 
         // insert and delete methods
         void insertNode(T, int);

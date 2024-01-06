@@ -68,7 +68,28 @@ int LinkedList<T>::getAfterFirst(int position)
 
 // linear search on an unsorted Linked List
 template <class T>
-int LinkedList<T>::search(int x)
+bool LinkedList<T>::search(int x)
+{
+    node<T>* temp = new node<T>;
+    temp = head;
+    
+    if (!isEmpty())
+    {
+        while (temp->data != x)
+        {
+            temp = temp->next;
+        }
+        return true;
+    }
+    // item is not on list
+    else
+    {
+        return false;
+    }
+}
+
+template <class T>
+int LinkedList<T>::linearSearch(int x)
 {
     node<T>* temp = new node<T>;
     temp = head;
@@ -81,14 +102,12 @@ int LinkedList<T>::search(int x)
         }
         return temp->data;
     }
+    // item is not on list
     else
     {
-        std::cout << "List is empty.\n";
         return -1;
     }
 }
-
-
 
 // insert and delete methods
 template<class T>
